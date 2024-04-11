@@ -3,9 +3,14 @@ import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
+import br.com.alura.screenmatch.modelos.Pessoa;
+
+
+import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
+
         Filme meuFilme = new Filme();
         meuFilme.setNome("O poderoso chefão");
         meuFilme.setAnoDeLancamento(1970);
@@ -50,5 +55,28 @@ public class Principal {
         episodio.setSerie(lost);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro Filme: " + listaDeFilmes.get(0));
+        System.out.println(listaDeFilmes);
+
+
+        Pessoa pessoa1 = new Pessoa("João", 14);
+        Pessoa pessoa2 = new Pessoa("Marcela", 24);
+
+        ArrayList<Pessoa> listaDePessoas = new ArrayList<>();
+        listaDePessoas.add(pessoa1);
+        listaDePessoas.add(pessoa2);
+
+        System.out.println("Tamanho da Lista de Pessoas: " + listaDePessoas.size());
+        System.out.println("Pessoa 1: " + listaDePessoas.get(0));
+        System.out.println("Pessoa 2: " + listaDePessoas.get(1));
+        System.out.println("primeiro: " + listaDePessoas.stream().findFirst());
+        System.out.println(listaDePessoas);
     }
 }
+
