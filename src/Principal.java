@@ -1,9 +1,6 @@
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
-import br.com.alura.screenmatch.modelos.Episodio;
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
-import br.com.alura.screenmatch.modelos.Pessoa;
+import br.com.alura.screenmatch.modelos.*;
 
 
 import java.util.ArrayList;
@@ -11,9 +8,7 @@ import java.util.ArrayList;
 public class Principal {
     public static void main(String[] args) {
 
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("O poderoso chefão");
-        meuFilme.setAnoDeLancamento(1970);
+        Filme meuFilme = new Filme("O poderoso chefão", 1970);
         meuFilme.setDuracaoEmMinutos(180);
         System.out.println("Duração do filme: " + meuFilme.getDuracaoEmMinutos());
 
@@ -27,18 +22,14 @@ public class Principal {
         //meuFilme.totalDeAvaliacoes = 1;
         //System.out.println(meuFilme.pegaMedia());
 
-        Serie lost = new Serie();
-        lost.setNome("Lost");
-        lost.setAnoDeLancamento(2000);
+        Serie lost = new Serie("Lost", 2000);
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
         lost.setMinutosPorEpisodio(50);
         System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avatar");
-        outroFilme.setAnoDeLancamento(2023);
+        Filme outroFilme = new Filme("Avatar", 2023);
         outroFilme.setDuracaoEmMinutos(200);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
@@ -77,6 +68,16 @@ public class Principal {
         System.out.println("Pessoa 2: " + listaDePessoas.get(1));
         System.out.println("primeiro: " + listaDePessoas.stream().findFirst());
         System.out.println(listaDePessoas);
+
+        //Produto Instance
+        ArrayList<ProdutoPerecivel> listaProdutosPereciveis = new ArrayList<>();
+
+        listaProdutosPereciveis.add(new ProdutoPerecivel("CocaCola", 3.50, 2, "05/06/2024"));
+        listaProdutosPereciveis.add(new ProdutoPerecivel("Hamburguer", 7.50, 2, "05/09/2025"));
+
+        for(ProdutoPerecivel produtoPerecivel: listaProdutosPereciveis){
+            System.out.println(produtoPerecivel);
+        }
     }
 }
 
